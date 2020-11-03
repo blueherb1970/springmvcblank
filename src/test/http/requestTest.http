@@ -1,0 +1,36 @@
+
+###
+### userId 取得 User
+GET http://localhost:8080/SpringMVCBlank/user/get/1.do
+Accept: application/json
+
+###
+### 新增
+POST http://localhost:8080/SpringMVCBlank/user/add.do
+Content-Type: application/json
+
+{
+  "username": "Lily",
+  "password": "123456",
+  "age": 16
+}
+
+### 【错误】 新增 。 由于后台要求 @RequestBody ，该请求抛出异常
+POST http://localhost:8080/SpringMVCBlank/user/add.do
+Content-Type: application/x-www-form-urlencoded
+
+username=Lily&password=123456
+
+###
+### 删除
+POST http://localhost:8080/SpringMVCBlank/user/delete.do
+Content-Type: application/x-www-form-urlencoded
+
+userId=1
+
+###
+### 视图：userId 取得 User
+GET http://localhost:8080/SpringMVCBlank/showUser.do?userId=1
+Accept: text/html
+
+###
